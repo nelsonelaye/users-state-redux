@@ -3,7 +3,7 @@ import { userType, stateType } from "../../App.types";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: stateType = {
-  users: [{ id: 1, name: "nelson", age: 10, bio: "nonnya" }],
+  users: [],
 };
 
 export const appSlice = createSlice({
@@ -16,8 +16,12 @@ export const appSlice = createSlice({
     },
 
     delete_user(state = initialState, action: PayloadAction<number>) {
-      state.users.filter((user: userType) => user.id !== action.payload);
-      return state;
+      //   const userIndex = state.users.indexOf(action.payload);
+      //   console.log(action);
+      state.users = state.users.filter(
+        (user: userType) => user.id !== action.payload
+      );
+      //   return state;
     },
   },
 });
