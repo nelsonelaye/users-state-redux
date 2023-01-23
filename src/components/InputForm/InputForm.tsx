@@ -7,6 +7,7 @@ import { add_user } from "../../redux/reducer/slice";
 import { ADD_USER } from "../../redux/actions/actions";
 import type { RootState } from "../../redux/store";
 import { store } from "../../redux/store";
+import rootReducer from "../../redux/reducer";
 
 const InputForm = () => {
   // state.rootReducer in the code line below refers to the in the store reducer object or key/value pair, as the case may be
@@ -28,6 +29,7 @@ const InputForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(add_user(data));
+          // dispatch(rootReducer());
         }}
       >
         <input

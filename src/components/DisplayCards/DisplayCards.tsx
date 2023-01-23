@@ -24,7 +24,6 @@ const DisplayCards = () => {
               text="Delete user"
               onClick={() => {
                 dispatch(delete_user(user.id));
-                console.log("Something");
               }}
             />
           </li>
