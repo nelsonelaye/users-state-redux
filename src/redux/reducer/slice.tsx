@@ -15,6 +15,13 @@ export const appSlice = createSlice({
       console.log({ ...action?.payload, id: state.users.length + 1 });
     },
 
+    update_user(state = initialState, action: PayloadAction<userType>) {
+      let indexofOldData = state.users.findIndex(
+        (user: userType) => user.id == action.payload.id
+      );
+      state.users.splice(indexofOldData, 1, action.payload);
+    },
+
     delete_user(state = initialState, action: PayloadAction<userType>) {
       //   const userIndex = state.users.indexOf(action.payload);
       //   console.log(action);
@@ -26,6 +33,6 @@ export const appSlice = createSlice({
   },
 });
 
-export const { add_user, delete_user } = appSlice.actions;
+export const { add_user, update_user, delete_user } = appSlice.actions;
 
 export default appSlice.reducer;

@@ -1,0 +1,28 @@
+@import "../../styles/base.scss";
+
+form {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 20px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+@media screen and (min-width: 425px) {
+  form {
+    width: 350px;
+  }
+}

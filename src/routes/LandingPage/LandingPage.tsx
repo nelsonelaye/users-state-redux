@@ -1,4 +1,3 @@
-import React from "react";
 import InputForm from "../../components/InputForm";
 import DisplayCards from "../../components/DisplayCards";
 

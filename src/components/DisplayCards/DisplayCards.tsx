@@ -4,14 +4,13 @@ import Button from "../Button";
 import { useSelector, useDispatch } from "react-redux";
 import { delete_user } from "../../redux/reducer/slice";
 import { RootState } from "../../redux/store";
+import { Link } from "react-router-dom";
 
 const DisplayCards = () => {
   const users = useSelector((state: RootState) => state.rootReducer.users);
   const dispatch = useDispatch();
   return (
     <section>
-      <h2>Available users</h2>
-
       <ul>
         {users?.map((user) => (
           <li key={user.id}>
@@ -20,6 +19,14 @@ const DisplayCards = () => {
               <b>{user.age}</b>
             </span>
             <span>{user.bio}</span>
+            <br />
+            <Link to={`/update/${user.id}`}>
+              {" "}
+              <Button text="Update user" />
+            </Link>
+
+            <br />
+            <br />
             <Button
               text="Delete user"
               onClick={() => {
