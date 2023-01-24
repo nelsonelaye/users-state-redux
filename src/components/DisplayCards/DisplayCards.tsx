@@ -14,7 +14,7 @@ const DisplayCards = () => {
 
       <ul>
         {users?.map((user) => (
-          <li key={user.name}>
+          <li key={user.id}>
             <h3>{user.name}</h3>
             <span style={{ fontSize: "20px" }}>
               <b>{user.age}</b>
@@ -23,7 +23,7 @@ const DisplayCards = () => {
             <Button
               text="Delete user"
               onClick={() => {
-                dispatch(delete_user(user.id));
+                dispatch(delete_user(user));
               }}
             />
           </li>

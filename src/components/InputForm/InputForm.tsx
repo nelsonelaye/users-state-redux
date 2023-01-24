@@ -1,6 +1,6 @@
 import "./index.module.scss";
 import Button from "../Button";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { userType } from "../../App.types";
 import { useSelector, useDispatch } from "react-redux";
 import { add_user } from "../../redux/reducer/slice";
@@ -16,7 +16,6 @@ const InputForm = () => {
   const dispatch = useDispatch();
 
   const [data, setData] = useState<userType>({
-    id: users.length + 1,
     name: "",
     age: 0,
     bio: "",
@@ -29,6 +28,7 @@ const InputForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(add_user(data));
+
           // dispatch(rootReducer());
         }}
       >
@@ -41,7 +41,7 @@ const InputForm = () => {
           required
         />
         <input
-          type="text"
+          type="number"
           placeholder="Age"
           onChange={({ target }) => {
             setData({ ...data, age: parseInt(target.value) });

@@ -11,15 +11,15 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     add_user(state = initialState, action: PayloadAction<userType>) {
-      state.users.push(action?.payload);
-      //   console.log(state.users);
+      state.users.push({ ...action?.payload, id: state.users.length + 1 });
+      console.log({ ...action?.payload, id: state.users.length + 1 });
     },
 
-    delete_user(state = initialState, action: PayloadAction<number>) {
+    delete_user(state = initialState, action: PayloadAction<userType>) {
       //   const userIndex = state.users.indexOf(action.payload);
       //   console.log(action);
       state.users = state.users.filter(
-        (user: userType) => user.id !== action.payload
+        (user: userType) => user.id !== action.payload.id
       );
       //   return state;
     },
